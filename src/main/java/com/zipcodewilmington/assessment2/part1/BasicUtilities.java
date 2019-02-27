@@ -23,6 +23,6 @@ public class BasicUtilities {
 
 
 
-        return (string.charAt(0)== character);
+        return (Character.toUpperCase(string.charAt(0))== Character.toUpperCase(character));
     }
 }
