@@ -1,5 +1,8 @@
 package com.zipcodewilmington.assessment2.part2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ArrayUtility {
 
 
@@ -31,8 +34,19 @@ public class ArrayUtility {
 
     public Integer[] rotate(Integer[] array, Integer index) {
 
+        ArrayList <Integer> arrayList = new ArrayList< >(Arrays.asList(array));
 
-        return null;
+        Integer len = arrayList.size();
+
+        for (int i=0; i<index; i++) {
+
+            arrayList.add(arrayList.get(0));
+            arrayList.remove(arrayList.get(0));
+
+        }
+Integer [] newArray = arrayList.toArray(new Integer[len]);
+
+        return newArray;
     }
 
     public Integer countOccurrence(Integer[] array1, Integer[] array2, Integer valueToEvaluate) {

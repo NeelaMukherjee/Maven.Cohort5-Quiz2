@@ -1,11 +1,12 @@
 package com.zipcodewilmington.assessment2.part2;
 
+import java.util.Map;
 import java.util.TreeMap;
 
 public class Router {
 
 
-    TreeMap <String, String> router = new TreeMap<>();
+    Map <String, String> router = new TreeMap<>();
 
     public void add(String path, String controller) {
 
@@ -40,5 +41,20 @@ public class Router {
     public void remove(String path) {
 
         router.remove(path);
+    }
+
+    public String toString (){
+
+        StringBuilder sb = new StringBuilder();
+
+
+        for(Map.Entry<String,String> entry : router.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+
+            sb.append(key + " -> " +value+"\n");
+
+        }
+        return  sb.toString();
     }
 }

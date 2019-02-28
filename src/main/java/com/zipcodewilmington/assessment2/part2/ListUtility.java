@@ -1,30 +1,29 @@
 package com.zipcodewilmington.assessment2.part2;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ListUtility {
 
-    ArrayList <Integer> intList = new ArrayList<>();
+    ArrayList<Integer> intList = new ArrayList<>();
 
     public ArrayList<Integer> getIntList() {
 
         return intList;
     }
 
-    public void setIntList(ArrayList <Integer> intList) {
+    public void setIntList(ArrayList<Integer> intList) {
         this.intList = intList;
     }
 
 
-
-    public Boolean add(int i) {
-
+    public Boolean add(Integer i) {
 
 
-        intList.add(i);
+        return intList.add(i);
 
-        return (intList.contains(i));
+        //return (intList.contains(i));
     }
 
     public Integer size() {
@@ -35,26 +34,36 @@ public class ListUtility {
 
     public List<Integer> getUnique() {
 
+        return (ArrayList) intList.stream().distinct().collect(Collectors.toList());
 
-        return null;
     }
 
     public String join() {
 
-        String result = intList.toString().replace( "[", "").replace( "]", "");
+        String result = intList.toString().replace("[", "").replace("]", "");
 
         return result;
     }
 
     public Integer mostCommon() {
+        Integer mostOccurences = intList.get(0);
 
-
-        return null;
+        for(Integer i : intList){
+            if(Collections.frequency(intList,i) > Collections.frequency(intList,mostOccurences)){
+                mostOccurences = intList.get(i);
+            }
+        }
+        return mostOccurences;
     }
 
-    public Boolean contains(Integer valueToAdd) {
 
 
-        return (intList.contains(valueToAdd));
+        public Boolean contains(Integer valueToAdd) {
+
+
+            return (intList.contains(valueToAdd));
+        }
     }
-}
+
+
+
